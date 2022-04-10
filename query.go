@@ -5,7 +5,7 @@ import (
 
 	"github.com/antonholmquist/jason"
 
-	"cgt.name/pkg/go-mwclient/params"
+	"github.com/clockworksoul/go-mwclient/params"
 )
 
 // Query provides a simple interface to deal with query continuations.

@@ -12,7 +12,7 @@ import (
 	"strings"
 	"time"
 
-	"cgt.name/pkg/go-mwclient/params"
+	"github.com/clockworksoul/go-mwclient/params"
 
 	"github.com/antonholmquist/jason"
 	"github.com/mrjones/oauth"

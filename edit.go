@@ -8,7 +8,7 @@ import (
 
 	"github.com/antonholmquist/jason"
 
-	"cgt.name/pkg/go-mwclient/params"
+	"github.com/clockworksoul/go-mwclient/params"
 )
 
 // ErrEditNoChange is returned by Client.Edit() when an edit did not change

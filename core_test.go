@@ -8,7 +8,7 @@ import (
 	"testing"
 	"time"
 
-	"cgt.name/pkg/go-mwclient/params"
+	"github.com/clockworksoul/go-mwclient/params"
 )
 
 func noSleep(d time.Duration) {

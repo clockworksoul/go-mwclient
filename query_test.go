@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"testing"
 
-	"cgt.name/pkg/go-mwclient/params"
+	"github.com/clockworksoul/go-mwclient/params"
 )
 
 func TestQuery(t *testing.T) {
