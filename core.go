@@ -21,7 +21,7 @@ import (
 // If you modify this package, please change DefaultUserAgent.
 
 // DefaultUserAgent is the HTTP User-Agent used by default.
-const DefaultUserAgent = "go-mwclient (https://github.com/cgt/go-mwclient)"
+const DefaultUserAgent = "go-mwclient (https://github.com/clockworksoul/go-mwclient)"
 
 type assertType uint8
 
@@ -367,22 +367,27 @@ func (w *Client) Login(username, password string) error {
 		return err
 	}
 	v := params.Values{
-		"action":     "login",
-		"lgname":     username,
-		"lgpassword": password,
-		"lgtoken":    token,
+		"action":         "clientlogin",
+		"username":       username,
+		"password":       password,
+		"loginreturnurl": "http://localhost:8080/",
+		"logintoken":     token,
 	}
+
 	resp, err := w.Post(v)
 	if err != nil {
 		return err
 	}
-	lgResult, err := resp.GetString("login", "result")
+
+	lgResult, err := resp.GetString("clientlogin", "status")
 	if err != nil {
 		return fmt.Errorf("invalid API response: unable to assert login result to string")
 	}
-	if lgResult != "Success" {
+
+	if lgResult != "PASS" {
 		apierr := APIError{Code: lgResult}
-		if reason, err := resp.GetString("login", "reason"); err == nil {
+
+		if reason, err := resp.GetString("clientlogin", "message"); err == nil {
 			apierr.Info = reason
 		}
 		return apierr
