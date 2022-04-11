@@ -366,11 +366,14 @@ func (w *Client) Login(username, password string) error {
 	if err != nil {
 		return err
 	}
+
+	loginReturnUrl := fmt.Sprintf("%s://%s\n", w.apiURL.Scheme, w.apiURL.Host)
+
 	v := params.Values{
 		"action":         "clientlogin",
 		"username":       username,
 		"password":       password,
-		"loginreturnurl": "http://localhost:8080/",
+		"loginreturnurl": loginReturnUrl,
 		"logintoken":     token,
 	}
 
